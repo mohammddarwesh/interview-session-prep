@@ -1,0 +1,97 @@
+{
+  "meta": {
+    "name": "Frontend Interview Prep — React/Next.js",
+    "start_date": "2026-08-16",
+    "interview_window": "3 weeks",
+    "level": "advanced (refresh)",
+    "notes": "DSA beginner — keep coding practice JS-focused"
+  },
+  "plan": {
+    "week_1": {
+      "title": "Foundations + JavaScript",
+      "days": [
+        { "day": 1, "topic": "Closures, this, hoisting, scope, prototypes, == vs ===", "status": "completed" },
+        { "day": 2, "topic": "Event loop, microtasks/macrotasks, promises, async/await, error handling", "status": "completed" },
+        { "day": 3, "topic": "ES6+: destructuring, spread, optional chaining, map/filter/reduce, Set/Map", "status": "pending" },
+        { "day": 4, "topic": "TypeScript: types/interfaces, generics, utility types, narrowing", "status": "pending" },
+        { "day": 5, "topic": "HTML/CSS: flexbox, grid, specificity, responsive, box model", "status": "pending" },
+        { "day": 6, "topic": "Practice: 8-10 JS coding problems", "status": "pending" },
+        { "day": 7, "topic": "Review + mock yourself on Week 1", "status": "pending" }
+      ]
+    },
+    "week_2": {
+      "title": "React Deep Dive",
+      "days": [
+        { "day": 8, "topic": "Component lifecycle, props/state, re-renders, key, controlled vs uncontrolled", "status": "pending" },
+        { "day": 9, "topic": "Hooks deep: useState, useEffect, useRef, custom hooks, rules of hooks", "status": "pending" },
+        { "day": 10, "topic": "useMemo/useCallback, reconciliation, virtual DOM, memo, re-renders", "status": "pending" },
+        { "day": 11, "topic": "Context API, Redux Toolkit/Zustand, React Query", "status": "pending" },
+        { "day": 12, "topic": "Performance: code splitting, lazy loading, error boundaries, portals", "status": "pending" },
+        { "day": 13, "topic": "Practice: build TODO app + 5 React coding questions", "status": "pending" },
+        { "day": 14, "topic": "Review + drill weak React concepts", "status": "pending" }
+      ]
+    },
+    "week_3": {
+      "title": "Next.js + Interviews",
+      "days": [
+        { "day": 15, "topic": "Next.js App Router: routing, layouts, pages, dynamic routes", "status": "pending" },
+        { "day": 16, "topic": "Data fetching: RSC, client/server components, caching, revalidation", "status": "pending" },
+        { "day": 17, "topic": "SSR/SSG/ISR/CSR + Pages Router legacy", "status": "pending" },
+        { "day": 18, "topic": "Next.js features: middleware, images, metadata, auth", "status": "pending" },
+        { "day": 19, "topic": "Build: mini Next.js project", "status": "pending" },
+        { "day": 20, "topic": "Mock interview #1 + soft skills", "status": "pending" },
+        { "day": 21, "topic": "Final review + Mock interview #2", "status": "pending" }
+      ]
+    }
+  },
+  "progress": {
+    "day_1": {
+      "quiz_results": {
+        "total": 10,
+        "correct": 7,
+        "wrong": ["Q3_hoisting", "Q10_coercion"],
+        "partial": ["Q1_closures_reasoning", "Q8_promise_wrapping"]
+      },
+      "concepts_covered": [
+        "closures",
+        "this_arrow_functions",
+        "hoisting_var",
+        "comparison_operators",
+        "event_loop_basics",
+        "array_methods",
+        "mutation_vs_copy",
+        "destructuring"
+      ],
+      "gaps_found": [
+        "block_vs_function_scope",
+        "promise_wrapping_pattern",
+        "null_vs_undefined",
+        "map_return_type"
+      ],
+      "extra_questions_answered": {
+        "null_vs_undefined": "correct_with_correction",
+        "map_return": "wrong",
+        "micro_vs_macro": "correct",
+        "prototype_shared_method": "correct",
+        "hasOwnProperty_vs_in": "corrected — hasOwnProperty returns boolean, not value",
+        "prototype_chain_lookup": "corrected — returns undefined, not empty object"
+      },
+      "status": "completed"
+    },
+    "day_2": {
+      "quiz_results": {
+        "total": 14,
+        "correct": 6,
+        "wrong": ["Promise.all_rejection", "Promise.executor_order", "return_vs_return_await", "await_null", "event_loop_order_D4", "async_output_order"],
+        "key_concepts": ["promise_executor_sync", "resolve_queues_callback", "await_pauses_function", "Promise.all_short_circuits"]
+      },
+      "gaps_found": [
+        "promise_executor_runs_synchronously",
+        "resolve_does_not_stop_execution",
+        "await_pauses_function_and_yields",
+        "Promise.all_vs_allSettled"
+      ],
+      "status": "completed"
+    }
+  }
+}
