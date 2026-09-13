@@ -27,3 +27,6 @@ Interview preparation materials and progress tracker for frontend developer inte
 - Use English for explanations (user prefers English)
 - Reference project bullets from `H:\programing\CV\resume bullets ai generatd\` when discussing projects
 - Each day has 2 sessions: Technical + HR practice
+- After each session, commit and push changes to keep progress on GitHub
+- HR questions are in a separate file: `hr-questions.md`
+- Technical prep is in `interview-prep.md`
