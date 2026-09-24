@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mega Dev — One-Day Cram</title>
+<style>
+  * { box-sizing: border-box; scroll-behavior: smooth; }
+  body {
+    direction: rtl;
+    font-family: "Segoe UI", "Noto Sans Arabic", Tahoma, Arial, sans-serif;
+    line-height: 1.9;
+    color: #1f2937;
+    background: #f3f4f6;
+    margin: 0;
+    padding: 24px 16px 60px;
+  }
+  .container { max-width: 860px; margin: 0 auto; }
+
+  nav.quicknav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: #0f172a;
+    border-radius: 12px;
+    padding: 8px 10px;
+    margin-bottom: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,.25);
+  }
+  nav.quicknav a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: .82rem;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 8px;
+    transition: background .15s, color .15s;
+    border: 1px solid transparent;
+  }
+  nav.quicknav a:hover { background: #1e3a8a; color: #fff; border-color: #3b82f6; }
+
+  header {
+    background: linear-gradient(135deg, #0f172a, #1e3a8a);
+    color: #fff;
+    padding: 28px 24px;
+    border-radius: 14px;
+    margin-bottom: 24px;
+  }
+  header h1 { margin: 0 0 8px; font-size: 1.6rem; }
+  header p { margin: 0; opacity: .85; font-size: .95rem; }
+
+  .tip {
+    background: #fef3c7;
+    border-right: 5px solid #f59e0b;
+    padding: 14px 16px;
+    border-radius: 8px;
+    margin: 16px 0;
+    font-size: .95rem;
+  }
+  section.topic {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px 18px;
+    margin-bottom: 22px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.08);
+    scroll-margin-top: 70px;
+  }
+  section.topic > h2 {
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e5e7eb;
+    color: #1d4ed8;
+    font-size: 1.15rem;
+  }
+  .qa { margin: 22px 0; }
+  .q {
+    font-weight: 700;
+    color: #111827;
+    background: #eef2ff;
+    border-right: 4px solid #4f46e5;
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+  }
+  .think {
+    background: #fffbeb;
+    border-right: 4px solid #f59e0b;
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: .92rem;
+    margin-bottom: 8px;
+  }
+  .think::before { content: "🧠 ازاي تفكر: "; font-weight: 700; color: #b45309; }
+  .a {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: .98rem;
+  }
+  .a ul, .a ol { margin: 6px 0; padding-right: 22px; }
+  .a li { margin: 4px 0; }
+  .work {
+    background: #eff6ff;
+    border-right: 4px solid #3b82f6;
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: .92rem;
+    margin-top: 8px;
+  }
+  .work::before { content: "💼 اربطها بشغلك: "; font-weight: 700; color: #1d4ed8; }
+  code, .mono { direction: ltr; unicode-bidi: embed; }
+  pre {
+    direction: ltr;
+    text-align: left;
+    background: #0f172a;
+    color: #e2e8f0;
+    padding: 14px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-size: .88rem;
+    line-height: 1.6;
+  }
+  pre code { background: none; color: inherit; }
+  .quote {
+    border-right: 4px solid #10b981;
+    background: #ecfdf5;
+    padding: 12px 14px;
+    border-radius: 6px;
+    font-style: italic;
+  }
+  .ltr-note { color: #64748b; font-size: .85rem; }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: .92rem; }
+  th, td { border: 1px solid #d1d5db; padding: 8px 10px; text-align: right; }
+  th { background: #e0e7ff; }
+  hr { border: none; border-top: 1px dashed #cbd5e1; margin: 14px 0; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>🚀 Mega Dev — مراجعة يوم واحد</h1>
+  <p>React + TypeScript + Tailwind CSS · Clean Code · Performance &amp; UX · APIs + State Management · Git &amp; GitHub</p>
+</header>
+
+<nav class="quicknav">
+  <a href="#sec-1">React</a>
+  <a href="#sec-2">JavaScript</a>
+  <a href="#sec-3">TypeScript</a>
+  <a href="#sec-4">State Mgmt</a>
+  <a href="#sec-5">Performance</a>
+  <a href="#sec-6">Tailwind</a>
+  <a href="#sec-7">Git</a>
+  <a href="#sec-8">HR</a>
+  <a href="#sec-9">مخطط اليوم</a>
+</nav>
+
+<div class="tip">
+  <strong>اللي هنا مختلف:</strong> كل إجابة مكتوبة <strong>كاملة تقولها زي ما هي</strong> — مش اختصار. قبلها <strong>"ازاي تفكر"</strong> بيشرح المنطق اللي الـ sาอु الـ interviewer عايزه، وبعدها <strong>"اربطها بشغلك"</strong> بيضيفلك مثال حقيقي من مشاريعك (StoreHub / Taskly / RestIQ / Get2Cars) عشان إجابتك تبقى أصدق وأقنع.
+</div>
+
+<!-- ================================================================ -->
+<section class="topic" id="sec-1">
+<h2>1. React Internals &amp; Re-renders <span class="ltr-note">— أهم جزء على الإطلاق</span></h2>
+
+<div class="qa">
+<div class="q">Q1. إيه الفرق بين الـ Virtual DOM والـ Real DOM؟</div>
+<div class="think">عايزك توضح إنك فاهم إزاي React بتحافظ على الأداء من غير ما تلمس الـ DOM بإيدك. التمييز الأساسي: الـ Real DOM غالي في الـ reflow/repaint، والـ Virtual DOM صورة رخيصة والفرق كله في الـ diff.</div>
+<div class="a">
+<p>الـ Real DOM هو الـ HTML الفعلي اللي موجود في المتصفح، وأي تعديل عليه بيشغّل عملية reflow و repaint مكلفة — ولو التحديثات كتيرة في وقت واحد ده بيبقى غالي جداً على الأداء. الـ Virtual DOM هو صورة رمزية في الـ memory من الواجهة. لما أعمل setState، React بتعمل نسخة جديدة من الـ Virtual DOM وتقارنها بالقديمة في عملية اسمها reconciliation — يعني بتطلّع الفرق (diff) بين الصورتين. بعد ما تحدد اللي اتغيّر فعلاً، بس وقتها بتعدّل على الـ Real DOM في العناصر اللي اتغيّرت. فالناتج إننا مش بنلمس الـ DOM إلا للضرورة، والتحديثات المتكررة بتتجمع وتتنفذ مرة واحدة.</p>
+<div class="work">في Get2Cars كان عندي جداول بيانات ضخمة بتتعدل باستمرار مع الـ TanStack Table، ففهم الفرق ده كان أساس أي قرار أداء خدته: "مفيش تحديث مباشر على الصفحة غير للأجزاء اللي الـ diff فعلاً لمسها".</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q2. إمتى React بتعمل re-render على الـ component؟</div>
+<div class="think">بيختبروك بالإجابة الناقصة. لازم الخمس حالات كاملة، ومهم توضح إن الـ re-render مش معناها re-mount — يعني مش إعادة بناء من الصفر.</div>
+<div class="a">
+<p>الـ component بيعمل re-render في خمس حالات: أولاً لما الـ state الداخلي بتاعه يتغيّر عن طريق setState. ثانياً لما الـ props الجاية له من الأب تتغيّر. ثالثاً حتى لو الأب عمل re-render من غير ما يغيّر قيم الـ props — لأن الأطفال بيترندروا مع الأب إلا لو ده اتحل بـ memo. رابعاً لما أكون بستهلك قيمة Context وهيّ اتغيّرت. وخامساً لما بنادي forceUpdate. بس الأهم إن الـ re-render معناه إعادة تشغيل دالة الـ component ومقارنة الـ Virtual DOM — مش إعادة رسم الصفحة ولا إعادة بناء الـ component اللي بتمسح منها الـ state. أغلب مشاكل الأداء اللي شفتها في الشغل كانت re-renders متكررة غير ضرورية على مستوى الشجرة كلها.</p>
+<div class="work">في Taskly الـ Kanban columns كانت بتتأثر كتير بالـ re-renders، فبدأت أراقب الـ React DevTools Profiler وأفرّق بين الـ re-render والـ re-mount — وده اللي قادني لتقسيم الـ state بشكل صح.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q3. ليه الـ key مهم في القوايم؟ وإمتى نستخدم الـ index؟</div>
+<div class="think">الـ key هو الهوية — بيخلي React تعرف مين اللي اتغيّر. لو قولت "بستخدم الـ index دايماً" كده كشفت إنك متجربتش الإضافة/الحذف في النص.</div>
+<div class="a">
+<p>الـ key بيدي React معلومة هوية كل عنصر في القايمة، فبيخلي الـ diff يشتغل صح ويحافظ على الـ state الداخلي لكل عنصر. لو استخدمنا الـ index وإضافة أو حذفنا عنصر في نص القايمة، كله indices بتتغيّر — فيفكر React إن كل العناصر اتبدّلت، فيبني الـ DOM من جديد والعناصر ممكن تحتفظ بـ state غلط، زي input محتفظ بقيمة عنصر تاني. القاعدة عندي: دايماً استخدم ID حقيقي ثابت من الـ data — لأن الهوية مستقلة عن الترتيب. الـ index مقبول بس في حالة واحدة: القايمة static ومش بتتعدل بالمرة، ومفيش input جواها.</p>
+<div class="work">في StoreHub المنتجات ليها معرّفات فريدة من الـ database، فكنت بكتب key={product.id} في الـ map — فإضافة/حذف صنف من السلة مفيش عنصر بيورّث state بتاع عنصر تاني.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q4. useMemo و useCallback و memo — إمتى أستخدم مين؟</div>
+<div class="think">اللي يكشفك إنك مش فاهم هو "بستخدمهم في كل حتة". الصح توضح إنهم أدوات ليها overhead، بتستخدم لما فيه مشكلة حقيقية.</div>
+<div class="a">
+<p>useMemo بيحفظ نتيجة حساب معين — فلو عندي عملية تجميع غالية زي حساب إجمالي الطلب من الـ cart، بتحسب مرة واحدة ومتتحسبش مع كل render غير لو الـ dependencies اتغيّرت. useCallback بيحفظ الدالة بنفس الـ reference — فلو ببعت دالة لـ child معمول له memo، من غيره الدالة بتتبني جديدة كل render، فالـ child هيعمل re-render لأن المقارنة هتفشل. والمقصود من memo هو بيغلف الـ component فيخليه ميعمليش re-render غير لو الـ props اتغيّرت فعلاً بالـ shallow comparison. بس لازم أكون صريح: مش بستخدمهم في كل مكان، لأن الـ memoization ليه تكلفة memory و overhead في المقارنة. نمطي: أبدأ من غيرهم، وأضيفهم بس بعد ما أشوف مشكلة أداء حقيقية في الـ Profiler.</p>
+<div class="work">في Get2Cars عملت Row component للجداول الكبيرة ومررت عليه callbacks للتعديل والمسح، فاستخدمت useCallback عشان الـ 10 آلاف صف ميعيدوش render على كل حرف بكتبه في حقل البحث.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q5. الـ Reconciliation بيشتغل إزاي فعلياً؟</div>
+<div class="think">فاكر إنه مش مقارنة حرفية — قواعد heuristic. النقطة المفتاحية: تغيير نوع الـ element بيعمل remount (بيبوظ الـ state)، ونفس النوع بيعمل update.</div>
+<div class="a">
+<p>لما يتغيّر الـ state أو الـ props، React بتاخد الـ tree اللي اترندر وتقارنه بالقديم — لكن مش عنصر عنصر بشكل كامل، بتستخدم قواعد heuristic علشان تسرّع. القاعدة الأولى: لو نوع الـ element نفسه اتغيّر — يعني كان div وبقى span — React بترمي الـ subtree القديمة وتبني واحدة جديدة بالكامل، وده معناها remount وبالتالي فقدان الـ state الداخلي. القاعدة الثانية: لو النوع هو نفسه، React بتقارن الـ props وبتحدّث الموجود بدل ما تبنيه من جديد. القاعدة الثالثة: القايمة بتتبنى على أساس الـ key. وبنفس المنطق، لو الـ element بيرجع بنفس الـ type في نفس المكان، React بتحافظ على الـ state بتاعه — فالمودال أو الـ input بيحتفظوا بحالتهم طول ما النوع ثابت.</p>
+<div class="work">في RestIQ لما عملت التبديل بين تبويبات، اكتشفت إن طريقة الـ conditional render كانت بغيّر شكل الـ tree فتتعبّد الـ remount — ففضلت أحافظ على استقرار الشجرة بدل ما أعمل re-mount غير ضروري.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q6. الفرق بين الـ Controlled والـ Uncontrolled components؟</div>
+<div class="think">محتاجين يتأكدوا إنك فاهم الـ data flow في الـ forms. خليك محدد، ومثال عملي من الفورم هيخلق فرق.</div>
+<div class="a">
+<p>الـ component الـ Controlled بيبقى فيه القيمة متحكم فيها بالكامل عبر React: عندي value جاية من الـ state و onChange بيعمل setState على نفس القيمة — فمصدر الحقيقة الوحيد هو React، والواجهة بتتحدث مع كل حرف. أما الـ Uncontrolled فبيخلي القيمة محفوظة جوه عنصر الـ DOM نفسه، وأنا بقراها بس لما أحتاجها عن طريق ref زي inputRef.current.value. الـ controlled أقوى في العملي: بيسمح بـ validation لحظية وإعادة تعيين القيم والربط بحالة عامة للتطبيق. ففي مشاريعي بستخدم controlled بشكل أساسي مع React Hook Form — لأنه بياخد تحكم الـ values والـ errors وبيبعد عنّي re-renders على كل حرف.</p>
+<div class="work">في Get2Cars كل الـ 12 فورم كانت React Hook Form + Zod، فكل الـ inputs بتكه controlled والـ validation بتمر لحظياً والـ state الكامل للفورم في مكان واحد.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q7. إزاي بتمنع re-render غير ضروري؟</div>
+<div class="think">بيدور على الوعي بالـ performance والـ patterns. حاوِل تذكر تقنية الـ composition — لأنها بسيطة وكثير ناس بتنساها.</div>
+<div class="a">
+<p>في شوية تقنيات: أولاً React.memo على الـ components اللي بتتكرر وبتترندر كتير وهي ملهاش داعي. ثانياً useCallback للدوال اللي ببعتاها لـ memoized children عشان الـ reference يفضل ثابت. ثالثاً رفع الـ state: لو جزء من الـ UI هو اللي محتاج الـ state، خليه component مستقلة — عشان التغيير يعمل re-render للجزء ده بس مش للشجرة كلها. رابعاً الـ composition: بدل ما أبعت مجموعة props لـ child يرندرهم، أبعتله children — فحتى لو الأب عمل re-render، الجزء اللي جوه الـ children مش هيتعاد تقييمه إلا لو هو نفسه محتاج. خامساً: للـ server state بستخدم TanStack Query وللـ client state بستخدم Zustand/Redux بـ selectors — فبيحصر الـ updates في الـ subscribers المحددين فقط، بدل Context اللي بيخلي كل الـ consumers re-render على أي تغيير.</p>
+<div class="work">في Taskly عملت selectors دقيقة في Redux Toolkit، فلما الـ session تتحدث، الـ sidebar بس هو اللي بيرندر مش الصفحة كلها.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q8. ليه الـ hooks بتتنادى جوه الـ component بس؟ (Rules of Hooks)</div>
+<div class="think">بيسألوا عن السبب اللي ورا القاعدة مش حفظ القاعدة. الجواب: الـ hooks بتتخزن بالترتيب، ولو الترتيب اتغيّر business الـ state يلخبط.</div>
+<div class="a">
+<p>الـ hooks اللي في الـ component بتتخزن جوه الـ fiber node — وهي بنية البيانات اللي React بتحتفظ بيها عن كل عنصر — في قايمة مرتبة حسب ترتيب النداء في كل render. لو حطيت hook جوه if أو loop فالترتيب هيتغيّر من render للتاني، وReact مش هتعرف تمسك أي رابط تبع أي hook — فالهردق الـ state من الأماكن الغلط وأي أخطاء مستحيلة التتبع. عشان كده القاعدة الأساسية: الـ hooks لازم تكون في الـ top level، وجوه component function أو custom hook بس — و مفيش hooks في الدوال العادية أو الشروط.</p>
+<div class="work">أغلب الـ bugs الغريبة اللي شفتها في كود قديم كانت hooks جوه شروط، فبقيت أكتب كل الـ hooks الأول وبعدين أي early return — عشان الترتيب يفضل ثابت.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q9. ليه useEffect في StrictMode بيشتغل مرتين؟ وليه مش مناسب للـ rendering؟</div>
+<div class="think">سؤال متقدم بيفرق بين المبتدئ والمحترف. نقطه مهمة: StrictMode تشتغل في الـ development بس، والـ useEffect بيشتغل بعد الـ paint.</div>
+<div class="a">
+<p>في الـ StrictMode، React بتركّب الـ component، وبعدين بترمّطه، وبعدين بتركّبه تاني — وده في الـ development فقط، مفيش منه في الـ production build. الهدف إنه يفضح أي side effect مكتوب بشكل غلط: لو في useEffect بيعمل subscribe أو fetch من غير cleanup مناسبة، هتشوفه بيتنفذ مرتين فتفهم إن في حاجة محتاجة إصلاح. وكمان الـ useEffect بيشتغل بعد ما المتصفح يخلص رسم الصفحة يعني بعد الـ paint — فمش مناسب لقراءة الـ layout أو الـ DOM وقت الرسم، ودي وظيفة useLayoutEffect. فاللي بستنى منه بعد الـ UI يظهر هو الـ side effects زي الـ fetch والـ subscriptions.</p>
+<div class="work">في RestIQ والـ Zustand مع الـ localStorage واجهني hydration mismatch، والـ StrictMode ساعدني ألاحظ إن السلة بتتعمل resolve مرتين — فاتعلمت اعمل cleanup وأعتمد على الـ rehydrate on mount بشكل صحيح.</div>
+</div>
+</div>
+</section>
+
+<!-- ================================================================ -->
+<section class="topic" id="sec-2">
+<h2>2. JavaScript <span class="ltr-note">— أساس أي إجابة في React</span></h2>
+
+<div class="qa">
+<div class="q">Q1. إيه هو الـ Closure؟</div>
+<div class="think">أشهر سؤال في الـ JS. الجواب: الدالة الداخلية بتفتكر الـ scope اللي اتولدت فيه. وحلقة الـ var هي الاختبار الشهير.</div>
+<div class="a">
+<p>الـ closure هو قدرة الدالة الداخلية إنها تحتفظ بمتغيرات الـ scope اللي اتولدت فيه، حتى بعد ما الدالة الأب تخلّص. يعني الدالة الداخلية بتقفل على بيئة المتغيرات بتاعتها. المثال الأشهر في المقابلات هو الحلقة بالـ var: لو عملت for loop بـ var وجوهها setTimeout، كل الـ callbacks بيشاركوا نفس المتغير i — فلما يتنفذوا و الـ i بقى 3، هيطبعوا 3 3 3، لأن الـ var function-scoped مش block-scoped. الحل: let اللي بتعمل متغير جديد لكل iteration، أو IIFE، أو forEach. وفي React نفس المفهوم بيظهر في الـ stale closure: لما الـ closure تشيل قيمة قديمة من الـ state لأن الـ dependencies بتاعة useEffect غلط.</p>
+<div class="work">في StoreHub فهم الـ closures خلاني أكتشف ليه الـ callback بتاع السلة كان بياخد state قديم — دي كانت المقدمة إني أهتم بالـ dependency arrays في كل الـ effects.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q2. رتّب الـ Event Loop في JS؟</div>
+<div class="think">سؤال بتتكتب فيه بسؤال وهمي feel تفتكر القاعدة: sync الأول، بعدين microtasks (Promises)، بعدين macrotasks (setTimeout).</div>
+<div class="a">
+<p>الـ Event Loop هو اللي بينظم تنفيذ الكود في الـ JS. الترتيب الصحيح: الأول الكود المتزامن (sync) بيتنفذ على طول في الـ call stack. بعد ما الـ stack يفضى، بيشتغل على الـ Microtask Queue واللي فيه الـ Promise callbacks و الـ .then و الـ await. وبعدين بيشتغل على الـ Macrotask Queue واللي فيه setTimeout و setInterval والأحداث. يعني لو كتبت console.log("A") وبعده ثم Promise.resolve().then(وظيفة) وبعده setTimeout(وظيفة)، هيكون الإخراج A ثم D ثم B ثم C — السينك الأول، بعدين المايكرو، بعدين الماكرو. نقطة مهمة كمان: المتصفح بيستغل الفترة بين المايكرو والماكرو عشان يعمل render للصفحة، فلو عملت عمليات ثقيلة في الـ main thread بتبقى الواجهة متجمدة.</p>
+<div class="work">في RestIQ التعامل مع الـ payment و الـ callbacks علّمني إني ألاحظ إيه اللي بيشغّل الـ main thread — فبقيت أخلي أي عملية غالية أنيق من الـ render أو في workers.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q3. Promise.all vs Promise.allSettled vs Promise.race؟</div>
+<div class="think">بيختبر اختيار الأداة الصح للسياق. الاختصار اللي محفوظ: all = كله أو ولا حاجة · allSettled = بيستنى الكل مهما حصل · race = أول واحد يخلص.</div>
+<div class="a">
+<p>التلاتة بيديروا مجموعة Promises بس لكل واحد سلوك مختلف. Promise.all بياخد array من الـ promises وبيرجع promise واحد يتحقق لو كلهم نجحوا، وأول ما واحد يفشل على طول بيعمل short-circuit — فبتبقى نتيجة كل الـ requests ضايعة لو واحد فشل. فهو مناسب لما أكون محتاج كل البيانات مع بعض عشان أرندر الصفحة. Promise.allSettled بيستنى كل الـ promises تخلص مهما حصل وبيرجع array فيه نتيجة كل واحد بـ status إما fulfilled أو rejected — مناسب لما كل طلب مستقل عن التاني وأنا عايز أعرض اللي نجح وأعالج اللي فشل لوحده. والـ race بيرجع أول promise يخلص من غير ما يهم فشل أو نجاح — وبيستخدم للـ timeouts يعني لو الـ API أبطأ من 5 ثواني أستجيب.</p>
+<div class="work">في Taskly لما أجيب بيانات الـ board والـ users والـ labels لصفحة واحدة استخدمت Promise.all لأن الصفحة كلها بتحتاجهم؛ وللصفحات اللي كل قسم مستقل استخدمت allSettled عشان فشل جزء ميقفش الباقي.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q4. ليه نلف setTimeout في Promise؟ وإيه حكاية الـ executor الـ sync؟</div>
+<div class="think">النقطة اللي بتميّزك: الـ executor بيتنفذ فوراً sync، و resolve() مش بيوقف تنفيذ الـ executor — بيأجل الـ callbacks بس.</div>
+<div class="a">
+<p>بنلف الـ setTimeout في Promise عشان نقدر نستخدم await و .then مع الـ APIs القديمة اللي شغالة بالـ callbacks — وبكده التحكم بقى async نضيف من غير حجب الواجهة. بس فيه حاجة كتير بيفاجئ بيها الناس: الـ Promise executor — يعني الدالة اللي جوه new Promise — بتتنفذ فوراً بشكل sync، مش بتتأجل. وأيضاً resolve() أو reject() بيقولوا للـ .then والـ .catch يترتبوا في الـ microtask queue، بس هم مش بيوقفوا الكود: أي سطر بعد resolve جوه الـ executor لسه هيشتغل. فلو كتبت console.log("A") ثم resolve("B") ثم console.log("C")، وبعد كده .then يطبع والقيمة، وبعده console.log("D")، الإخراج هيبقى A C D B — السينك الأول، والـ resolved value بعدهم في المايكرو.</p>
+<div class="work">دي البصمة اللي لو قولتها في المقابلة هتفرّق مع الـ get2cars khi كنت بتعمل chain fetches لازم تتأكد إن التنفيذ مش بيتعطل على resolve.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q5. == vs === وأمثلة الـ coercion؟</div>
+<div class="think">احفظ جملة واحدة وقايمة أمثلة. === بيقارن القيمة والنوع · == بيعمل تحويل (coercion) فبيدي نتايج غريبة.</div>
+<div class="a">
+<p>الـ === بيقارن القيمة والنوع مع بعض من غير أي تحويل — فـ "5" === 5 بترجع false لأن واحد string والتاني number. الـ == بيعمل type coercion يعني بيحول القيمتين لنوع مشترك الأول عشان يقارنهم، وده بيبوظ نتائج غريبة: 0 == "" بترجع true، و 0 == false بترجع true، و [] == false بترجع true لأن الـ array الفاضي بيتحول لـ "" وبعدين لـ 0، وحتى null == undefined بترجع true. في الكود الفعلي بستخدم === دايماً وبنفعّل قاعدة ESLint بتمنع ==. والـ + قاعدته لوحده: "5" + 3 بترجع "53" لأن وجود string بيعمل concatenation، لكن "5" - 3 بترجع 2 لأن باقي الـ operators بيحولو لعدد.</p>
+<div class="work">في الـ code reviews أغلب الـ bugs القديمة كانت == في مقارنات الـ status، فلما قلبنا للـ === ومشي الـ TypeScript قلت نسبة الـ bugs بشكل واضح.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q6. الـ Hoisting و الـ TDZ؟ var vs let vs const؟</div>
+<div class="think">النقطة اللي بتفرق: let/const بيتهوّستوا بس في الـ TDZ فبيدوا ReferenceError — والـ var بيتهوّست بـ undefined.</div>
+<div class="a">
+<p>الـ hoisting معناه إن الإعلانات بتتقفل أعلى الـ scope بتاعها قبل تنفيذ الكود. الـ var بيتهوّست وبيبقى initialised بـ undefined — فلو عملت console.log(a) قبل `var a = 5` هيطبع undefined مش error. أما let و const بيتهوّستوا كمان، بس من غير initialization — بيبقوا في منطقة اسمها Temporal Dead Zone، فأي استخدام قبل السطر بتاع التعريف بيديك ReferenceError، وده بيخلي الأخطاء تظهر بدري فالكود أصح. الـ var function-scoped يعني متاح في كل الدالة حتى لو اتعرف جوه block، بينما let/const block-scoped. والـ const لازم يبقى له قيمة من الأول ومينفعش يتعاد تعيينه، بس لو قيمته object أو array تقدر تعدل جواه عادي.</p>
+<div class="work">لما اشتغلت في RestIQ رميت أي إعلان متأخر من الـ TDZ، لإنه كان مصدر errors غريبة في الـ state initialization وقت الـ strict mode.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q7. الـ this — بيتحدد إزاي؟ ودور الـ arrow؟</div>
+<div class="think">حفظ قواعد الربط: this بيتحدد من طريقة الاستدعاء مش من التعريف · arrow function مالهاش this — بتاخد من الـ lexical scope.</div>
+<div class="a">
+<p>الـ this في الدوال العادية بيتحدد من طريقة الاستدعاء. لو ناديت obj.method() بتبقى this هي obj. لو ناديت الدالة لوحدها بتبقى الـ global (أو undefined في strict mode). ولو عملت new F() بتبقى this هي الـ object الجديد. الـ arrow function مالهاش this بتاعها إطلاقاً — بترث الـ this من الـ lexical scope اللي اتعرفت فيه، يعني من الـ scope المحيط. فدي مثالية مع الـ callbacks اللي جوه components لأنها بتحتفظ بالـ context من غير bind يدوي. والـ bind نفسه بيعمل دالة جديدة مربوطه بـ this معيّن.</p>
+<div class="work">في الأكواد الحديثة أقل استخدام للكلام ده، بس لما فككت مشكلة في class components قديمة فهم القواعد خلاني أعرف إن الـ handler محتاج arrow أو bind عشان المحلية صح.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q8. call / apply / bind — الفرق؟</div>
+<div class="think">سؤال حفظ سهل — بس توضح بسرعة: call و apply بينفذوا فوراً · apply بياخد الحجج array · bind بيرجع دالة جديدة.</div>
+<div class="a">
+<p>التلاتة بيعدّلوا على الـ this بتاع الدالة. call() بينادي الدالة فوراً وبتاخد الحجج واحدة واحدة: fn.call(obj, a, b). apply() نفس الفكرة بس بتاخد الحجج كـ array: fn.apply(obj, [a, b]). bind() مبيجبش على طول — بترجع دالة جديدة مربوطة بـ this معين تناديها في أي وقت من غير ما تحتاج إعادة ربط. في React الحديث مفيش استخدام كبير ليهم، بس موجودين في الـ utility functions وبعض الـ APIs. النقطة اللي محفوظة عندي: bind مهم لما بعمل handler محتاج context ثابت في class components.</p>
+<div class="work">في StoreHub مع مكتبات خارجية بتعمل this غريب على الـ methods، كنت بحل الموضوع بـ bind عشان أضمن إن الـ method مرتبط بالمكون الصح — ومفيش كلمة أغرب من اللي كان بيحصل بدونه.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q9. map vs forEach vs reduce؟</div>
+<div class="think">اختبار الـ functional programming: map بترجع array جديد بنفس الطول · forEach بترجع nothing · reduce بتجمع في قيمة واحدة.</div>
+<div class="a">
+<p>الـ map بياخد array ويطبق دالة على كل عنصر وبيرجع array جديد بنفس الطول بالنتائج — دي أداة التحويل، وده اللي بنستخدمه في React لتحويل الـ data لـ JSX. الـ forEach بيعمل loop على الـ array لكن مبيعملش أي حاجة — للـ side effects بس زي الـ console.log أو دفع عناصر لقايمة تانية؛ ومش بيتزعزع في الـ pipeline. الـ reduce بياخد الـ array ويجمّعه في قيمة واحدة — إجمالي الـ cart أو بناء object من array، والمثال [1,2,3].reduce((a,b)=>a+b, 0) بترجع 6. اللي محفوظ: transform → map · side effect → forEach · aggregation → reduce.</p>
+<div class="work">في RestIQ بستخدم reduce لحساب إجمالي السلة والكميات، و map لرندر الـ items — ودي إجابة جاهزة لو سألوا عن معالجة البيانات.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q10. Shallow vs Deep copy؟</div>
+<div class="think">بيختبروا فهم الـ immutability أساس React. ثلاث مستويات: reference، shallow copy، deep copy.</div>
+<div class="a">
+<p>أول حاجة: const b = a مش copy أصلاً — بيخلي b يشاور على نفس الـ array أو الـ object في الـ memory، فأي تعديل بالـ b هيبان في الـ a. الـ shallow copy زي [...arr] أو {...obj} بينسخ الطبقة الخارجية بس — الـ primitives بتتنسخ، لكن الـ nested objects أو arrays جوه الـ object بيتنسخوا بالـ reference، فلو عدلت في sub-object هيتعدل في الأصل. الـ deep copy بينسخ كل مستويات: structuredClone(obj) دي الـ native الحديثة، أو JSON.parse(JSON.stringify(obj)) للبيانات البسيطة بس — وبيقع مع الـ functions والـ Date. وفي React الإجابة بتتقاطع مع الـ immutability: لما أعمل setState لازم أبعت نسخة جديدة مش تعدل على الأصل، لأن React بتقارن الـ references.</p>
+<div class="work">في RestIQ السلة مع Zustand أي إضافة صنف بتحصل بـ [...items, newItem] مش push — عشان الـ state يتحدث بالـ reference الجديد عشان الـ re-render والـ subscriptions تشتغل.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q11. Debounce vs Throttle؟</div>
+<div class="think">ربطه بالأداء: debounce بينفذ بعد ما تقف الكتابة · throttle بينفذ مرة كل فترة ثابتة مهما كترت الأحداث.</div>
+<div class="a">
+<p>الاتنين بيديروا توقيت تنفيذ الأحداث عشان الأداء. الـ debounce بيأجل تنفيذ الحدث لحد ما تمر فترة معينة من غير أحداث — يعني لو أنا بكتب في حقل بحث عن شيء، التنفيذ هيحصل بس بعد ما أوقف الكتابة 300ms، فيتنفذ مرة واحدة مش في كل حرف. مثالي للـ search inputs والـ autocomplete. الـ throttle بيضمن التنفيذ مرة كل فترة ثابتة مهما كترت الأحداث — الـ scroll مهما اتشغّل ألف مرة في الثانية، الكود هيتنفذ مثلاً مرة كل 200ms، ومثالي للـ scroll والـ resize والـ infinite scroll. الزبدة: debounce = "استنى لما تسكت" · throttle = "نفذ بانتظام مهما حصل".</p>
+<div class="work">في Taskly بحث المهام كان متزامن مع الـ URL state، فعملت debounce عشان مبعيش request وراء request في كل حرف، وده خلّى التجربة سلسة والأداء طلع عالي في الـ Lighthouse.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q12. الـ Optional Chaining ?. و الـ Nullish Coalescing ??؟</div>
+<div class="think">الفرق اللي بيميز: ?? و || مش زي بعض على الـ falsy values — 0 و "" بيعدوا مع ??.</div>
+<div class="a">
+<p>الـ optional chaining user?.profile?.name بيوصل للخصائص بأمان — لو أي مرحلة قي الـ chain بقت null أو undefined بترجع undefined بدل ما ترمي error. ده مهم جداً مع بيانات الـ API لأن شكلها مش مضمون 100%. الـ nullish coalescing ?? بيدي fallback بقاعدة مختلفة عن ||: الـ || بيعمل fallback لأي falsy value زي 0 أو "" أو false، لكن ?? بيتعامل مع null و undefined بس. يعني 0 || 10 بترجع 10، لكن 0 ?? 10 بترجع 0 — فلما الـ 0 تكون قيمة صحيحة من الـ API، بستخدم ?? عشان ما تتعملش override غلط. في React بيتجمعوا عادة: const name = user?.name ?? "مجهول".</p>
+<div class="work">في Get2Cars الـ 38 endpoint كانت الـ responses فيها nested بيانات اختيارية، فـ user?.address?.city ?? "N/A" اتبقى من أكتر الأنماط استخداماً في كل الشاشات.</div>
+</div>
+</div>
+</section>
+
+<!-- ================================================================ -->
+<section class="topic" id="sec-3">
+<h2>3. TypeScript <span class="ltr-note">— أهم 6 أسئلة</span></h2>
+
+<div class="qa">
+<div class="q">Q1. interface vs type — الفرق؟</div>
+<div class="think">سؤال بيفرّق الحافظ من الفاهم. النقطة الجوهرية: interface بيتدمج وبيتمد بـ extends · type بيعمل unions والتركيبات.</div>
+<div class="a">
+<p>الاتنين بيعرفوا شكل الـ object، بس في فروق حقيقية. الـ interface ممكن يتدمج بالـ declaration merging — تعرّف interface بنفس الاسم مرتين وبيتجمعوا — وبيتوسع بـ extends لو ورث من interface أو class. الـ type أقوى في التركيبات: بيعمل union types زي type Status = "idle" | "loading" | "success"، و intersections بـ &، والـ tuples والمـapped types — أشكال مش interface تقدر تعملها. القاعدة اللي محفوظة عندي والمتفق عليها في المجتمع: الـ objects والـ classes → interface · أي حاجة بتبني من أشكال متداخلة → type. وفي الآخر الاتنين شغالين، المهم الاتساق في نفس القاعدة.</p>
+<div class="work">في Get2Cars استخدمت interface لكل entity (User, Car, Booking) و type للـ status unions بتاعة الـ booking lifecycle — فالنظام بقي مقروء والـ أنواع معبّرة.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q2. أذكر 5 Utility Types وإيه وظيفة كل واحد؟</div>
+<div class="think">سؤال حفظ — بس اللي يفرّق إنك تضيف استخدامات عملية. احفظهم جوه context: Partial للـ update · Pick/Omit للـ subsets.</div>
+<div class="a">
+<p>Partial&lt;T&gt; بيخلي كل الخصائص اختيارية — مثالي مع الـ update forms. Pick&lt;T, K&gt; بياخد sub-set من الخصائص المعيّنة، و Omit&lt;T, K&gt; بياخد كل الخصائص إلا اللي تذكرها — الاتنين لبناء views من entity من غير حاجات حساسة. Readonly&lt;T&gt; بيخلي كل الخصائص للقراءة بس — للكائنات اللي مينفعش تتعدل. Record&lt;K, V&gt; بيبني object بمفاتيح من نوع K وقيم من نوع V — عملي للـ lookup tables. و ReturnType&lt;T&gt; بيستخرج نوع القيمة اللي الدالة بترجعها — مفيد مع الـ useQuery لما الدالة generic.</p>
+<div class="work">في StoreHub استخدمت Partial مع فورم تعديل صنف عشان أبعت الأعمدة اللي اتعدّلت بس، و Omit عشان أشيل الـ id من بيانات الفورم قبل ما تتبعت.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q3. الـ Generics — عمل إيه؟ ومثال عملي؟</div>
+<div class="think">بيحبوا مثال يظهر إنك فاهم الـ rebestion بين الـ types مش تعريف نظري. حضر مثال بـ useQuery أو hooks عامة.</div>
+<div class="a">
+<p>الـ generics بيسبو الـ type متغير ويربطوا البيانات ببعض: بدل ما أكتب دالة لتهيئة نوع واحد محدد، أعرف إن النوع هييجي وقت الاستخدام. أبسط مثال: function identity&lt;T&gt;(arg: T): T — يعني اللي أدخله هو اللي يخرج، والدالة بتحافظ على الـ type من غير أي casting. أمثلة عملية: useQuery&lt;UserResponse&gt;(...) بتخلي الـ data نوعها معروف في كل المشروع، و useForm&lt;FormValues&gt;() من React Hook Form. اللي بيقوّي الإجابة إن أوضح إن الغير عمل الـ generic ليس شكلياً — ده أمان و compile-time checking بحيث أي خطأ في الحقول يبان في الـ editor بدل الـ runtime.</p>
+<div class="work">في Get2Cars عملت hooks عامة زي useGet&lt;T&gt; و usePost&lt;T, Body&gt; — نفس الهوك اشتغل مع الـ Users والـ Orders والـ Cars من غير تكرار، والـ type بييجي من مكان النداء.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q4. الـ Type Narrowing — أمثلة؟</div>
+<div class="think">اللي بيفرّقك إنك تعرف discriminated unions — النمط اللي بيستخدم مع نتايج الـ API كتير.</div>
+<div class="a">
+<p>الـ narrowing هو لما الـ TypeScript يضيّق النوع لواحد أدق جوه كتلة معينة. أدواته: typeof للـ primitives، و instanceof للأصناف، و in للتحقق من وجود خاصية. والأقوى pattern اسمه discriminated unions — object ليه خاصية مشتركة بتفصل بين الأشكال:</p>
+<pre><code>type Res = { ok: true; data: User } | { ok: false; error: string };
+function handle(r: Res) {
+  if (r.ok) console.log(r.data);   // TS بيعرف ان data موجودة هنا
+  else console.log(r.error);       // و error موجودة هنا
+}</code></pre>
+<p>ده أكتر pattern عملي مع الـ API — بيعمل معالجة success/failure بطريقة type-safe مش ورق عشوائي.</p>
+<div class="work">في Get2Cars حالة الـ booking كانت discriminated union — فكل حالة ليها شكل واضح في الـ UI، ومنطق التعامل مع كل status بيتكتب بأمان type-safe.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q5. إزاي تتأكد من نوع الـ API Response في TypeScript؟</div>
+<div class="think">بيحبوا يسمعوا runtime validation هنا — لأن الـ types بس بيضمنوا الـ compile. الجواب المتكامل: interface + axios generic + Zod.</div>
+<div class="a">
+<p>الخطوة الأولى أعرّف interface لوصف الـ data زي UserResponse { id: number; name: string }، وأستخدمها مع الـ client: axios.get&lt;UserResponse&gt;(...) أو fetch مع await res.json() as UserResponse. بس في مشكلة مهمة: الـ TypeScript كله بيحصل في الـ compile وقت، ولو الـ API رجع شكل مختلف في الـ runtime الـ types مش هتحميني. فالحل المتكامل اللي بفضّله: Zod — بعرّف schema بيworks validation وقت الـ runtime وأستنبط منه النوع بـ z.infer&lt;typeof schema&gt;. فبأضمن حاجتين: المطور شايف النوع الصحيح أثناء التطوير، والبيانات متفحّصة فعل عشان runtime — ولو شاكلها اتغيّر بنطلع error بدل ما يعدي صامت ويسبب bug صعب.</p>
+<div class="work">في Get2Cars ربط الـ 38 endpoint كله بـ zod schemas — ففورم الحجز بيتثبت فيه بياناته قبل الـ server أصلاً، ولو السيرفر رجع شكل غلط بنعرف فوراً.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q6. any vs unknown — ليه any وحش؟</div>
+<div class="think">اقول الجملة الحلوة: "unknown بيعني إن النوع مش معروف لكن هاقيسه الأول؛ أي anything بيعني خلينا نسيب الـ checking خالص."</div>
+<div class="a">
+<p>الـ any بيقول لـ TypeScript: "متتعاملش معاه، سيبه" — بيطلع الـ checking على المتغير ده بالكامل، فهتلاقي أي خطأ في الـ property names أو الـ types بيمر في الـ compile ويطلع bug في الـ runtime. والـ any بيتسرب: لو ردّيت قيمته على أي function، النتيجة بتبعك any هي كمان. الـ unknown هو العكس: "النوع مش معروف، ومش هسمحلك تستخدمه غير بعد ما تتأكد" — فتضطر تعمل narrowing بـ typeof أو check قبل الاستخدام. فبنستخدمه مع بيانات مجهولة، وبعد الـ validation بنحوّل للنوع الصح. القاعدة في الكود بتاعنا: ممنوع any في الكود الجديد — unknown + narrowing أو أنواع محددة.</p>
+<div class="work">في الـ code reviews كنت بحط ملاحظة على أي any بيظهر، وبشوف إن الـ DTOs القديمة المليانة أي هي مصدر أغلب أخطاء الـ runtime اللي كنا بنخش فيهم — فلما رحنا type-safe احسن الحال.</div>
+</div>
+</div>
+</section>
+
+<!-- ================================================================ -->
+<section class="topic" id="sec-4">
+<h2>4. State Management <span class="ltr-note">— أهم 5 أسئلة</span></h2>
+
+<div class="qa">
+<div class="q">Q1. ليه محتاجين State Management أصل؟ وإمتى الـ Context لوحده مش كفاية؟</div>
+<div class="think">بيختبر فهم الـ re-render propagation. الجواب: الـ Context بيخلي كل الـ consumers يقلعوا re-render على أي تغيير، ومفيش selectors.</div>
+<div class="a">
+<p>الـ state بيتقسّم لفئات: state محلي في component، و state مشترك جوه شجرة (مناسب للـ Context أو الـ lifting)، و state مشترك على نطاق التطبيق كله (محتاج إدارة منظمة). الـ Context ممتاز للحالات الثابتة نسبياً زي الـ theme والـ auth والـ locale — بيُقرأ كتير ومش بيتغيّر بشكل متكرر. لكن لما الـ state بيتغيّر بسرعة وبيتشارك كتير — زي قايمة متحركة أو بيانات لوحة المهام — الـ Context بيخلي كل الـ consumers يعيدوا render حتى لو هم مش مستخدمين الجزء اللي اتغيّر، لأن مفيش selectors ولا subscriptions انتقائية. عشان كده بنستخدم أدوات بتشتغل بـ subscription بس لكل component — زي Redux Toolkit أو Zustand — فالتحديث بيسمع منه بس اللي متابع عنصر معيّن.</p>
+<div class="work">في Taskly الـ session والـ theme كانوا Context، لكن الـ Kanban والـ tasks كانوا Redux + TanStack Query — لأن كل حركة بطاقة بدل ما تخلي كل الـ columns يتأثروا.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q2. Redux Toolkit vs Zustand — إمتى مين؟</div>
+<div class="think">مفيش إجابة واحدة صح — عايزين رأي متوازن مع trade-offs. قوي إنك تربطها بحجم المشروع والـ team.</div>
+<div class="a">
+<p>الـ Redux Toolkit هو الحل المتكامل للمشاريع الكبيرة: slices بتنظّم الـ state والـ actions والـ reducers مع بعض، و thunks للـ async، و DevTools مع time travel في تتبع الـ state، وقواعد واضحة للفريق. مناسب لما الفريق كبير والـ state معقّد، بس ثمنه الـ boilerplate والتنظيم. الـ Zustand أرحب: بيفتح store صغير، والـ selectors في الـ hooks بيعملوا subscriptions دقيقة — بس المشروع المتوسط أو الـ state اللي بيتغيّر بسرعة. اختياري في العملي: Redux للـ client state المعقّد في فرق كبيرة؛ Zustand للمشاريع الأصغر أو حالات زي cart مع localStorage. والأهم إن ناس كتير بتنساه: الـ server state أصلاً ملك TanStack Query مش الـ stores.</p>
+<div class="work">في Taskly استخدمنا Redux Toolkit للـ session والـ UI state، وفي RestIQ استخدمنا Zustand للسلة مع localStorage — لأن السلة بتتغيّر بسرعة ومحتاجة hydration-safe من غير إفريز boilerplate.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q3. الفرق بين الـ Client State والـ Server State؟ وليه بنخليهم منفصلين؟</div>
+<div class="think">بيستكشفوا الـ architectural choice — الأهم في الشركات الحديثة. الحسم: الـ server state ليه lifecycle خاص (cache, stale, refetch) مش في الـ stores.</div>
+<div class="a">
+<p>الـ client state هو حالتك المحلية: الـ UI state زي فتح/قفل الـ sidebar، الـ session، الـ form state، الـ theme — ملك التطبيق بالكامل. الـ server state هو البيانات الجاية من الـ API: الـ users والـ orders والمهام — مصدر الحقيقة الحقيقي هو السيرفر. وأليهم lifecycle خاص: cache لإعادة استخدام البيانات من غير refetch متكرر، staleTime، refetch on focus، retries، optimistic updates، و invalidation بعد الـ mutations. لو حطيت كل ده في الـ Redux بتبقى بتبني مكتبة كاملة بإيدك من الأول. عشان كده الـ architecture اللي بحبّه: Redux/Zustand للـ client state و TanStack Query للـ server state — فصل صارم ما بين مصدرين مختلفين للبيانات.</p>
+<div class="work">في Taskly جربت الخلط الأول، وبعدين فصلنا: Redux للـ UI والـ session، و React Query لكل بيانات الـ supabase مع cache وأـ optimistic updates للـ Kanban — وده اللي رفع الـ Lighthouse performance.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q4. إيه الـ Optimistic Update في TanStack Query؟</div>
+<div class="think">مثال عملي قوي جداً — بيفرق جوع المستمع. قوله بأدوار: حدّث الـ cache فوراً → ابعت mutation → ارجع للقديم لو فشل.</div>
+<div class="a">
+<p>الـ optimistic update يعني إن الـ UI بيستجيب فوراً قبل رد السيرفر، من غير ما تستنى round trip. في TanStack Query: أول ما المستخدم يعمل action — زي سحب بطاقة لعمود تاني في الـ Kanban — بنحدّث الـ cache بتاع الـ query فوراً بالنتيجة المتوقعة، فالـ UI بيتحرك فوراً كإن السيرفر رد. وفي نفس الوقت بنبعت الـ mutation في الخلفية. ولو فشلت بنعمل rollback: نرجع الـ cache للقيمة القديمة وبنعرض رسالة خطأ — وده كله بيتعمل بـ onMutate و onError و onSettled. النقطة اللي بحب أضيفها: لازم أتأكد إن الـ mutation idempotent بيني وبين نفسه — عشان لو حصل retry ميتضاعفش التأثير.</p>
+<div class="work">في Taskly الـ Kanban مع الـ dnd-kit بيشتغل بالظبط كده: البطاقة بتتحرك فوراً، الـ cache بيتحدّث، ولو الـ API رجع fail بنرجع البطاقة لمكانها — تجربة سلسة جداً.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q5. الـ Context + useReducer بيحلوا محل Redux؟</div>
+<div class="think">بيطلبوا رأي صريح. الجواب الجيد: "ينفع للمشاريع الصغيرة، لكن فيه حدود أداء وتول تجعله غير مرغوب للكبيرة."</div>
+<div class="a">
+<p>تقنياً ينفع ده للمشاريع الصغيرة: useReducer بيدير الـ logic والـ Context بيوزّع الـ state على الشجرة من غير مكتبة إضافية. بس فيه حدود واضحة: أولاً الأداء — أي تحديث بيخلي كل الـ consumers يعيدوا render، من غير selectors ولا subscriptions. ثانياً الـ tooling — مفيش DevTools time travel ولا middleware ولا تنظيم قياسي للـ async actions. ثالثاً مع الـ server state ده مش حل اصلاً لأن مفيش caching و refetching. خلاصتي في المقابلة: Context + useReducer ممتاز للمشروع التعليمي أو الصغير؛ لكن لما المشروع يكبر أو الـ data تتشابك أو الفريق يكبر، بزوّد لأداة منظّمة + TanStack Query للـ server state.</p>
+<div class="work">في StoreHub بدأنا بـ Context للأوضاع العامة، بس أول ما الـ orders state والـ filters تشابكوا رفعناهم لـ Redux Toolkit — تجربة عملية علّمتني أحكام التوسّع.</div>
+</div>
+</div>
+</section>
+
+<!-- ================================================================ -->
+<section class="topic" id="sec-5">
+<h2>5. Performance &amp; Clean Code <span class="ltr-note">— أهم 6 أسئلة</span></h2>
+
+<div class="qa">
+<div class="q">Q1. إزاي بتحسّن الـ Performance في تطبيق React؟</div>
+<div class="think">سؤال عرض — بيحبوا قايمة منظمة ونتيجة قابلة للقياس. حضّر القايمة بالترتيب واربطها برقم حقيقي.</div>
+<div class="a">
+<p>عندي قايمة بالترتيب بتأثيرها: أولاً الـ code splitting مع React.lazy و Suspense — بحمّل كل route لوحدها، فأول زيارة بتنزّل bundle أصغر بدل التطبيق كله. ثانياً الـ caching مع TanStack Query — بيمنع requests متكررة لبيانات موجودة. ثالثاً تقليل الـ re-renders بـ memoization موجّه: React.memo للمكونات اللي مالهاش داعي للتحديث، و useMemo/useCallback في الأماكن المحددة. رابعاً تحسين الصور: lazy loading و format مضغوط. خامساً الـ vendor splitting — فصل المكتبات الكبيرة عن الـ bundle الأساسي. وسادساً تحسين الـ events: debounce للـ search. وآخر حاجة مهمة: بنقيس الأول بـ Lighthouse أو الـ Profiler — لأن من غير قياس مفيش تحسين حقيقي، بتبقى ظنون.</p>
+<div class="work">في Get2Cars الرقم اللي بيفرّق في المقابلة: الـ Lighthouse بدأ ~60 ووصل 90+ — بالـ code splitting اللي خفّض الـ initial bundle، والـ React Query caching اللي قلّل الـ requests المتكررة.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q2. الـ useEffect لـ fetching vs TanStack Query؟</div>
+<div class="think">بيستكشفوا هل إنت ماشي بالأسلوب الحديث. الحسم: useEffect بيحمّل عليك كل الـ states والـ edge cases · الـ Query جاهز بالـ cache والـ retry.</div>
+<div class="a">
+<p>لو جبت البيانات بـ useEffect بتبقى محتاج تعمل state للـ data وللـ loading وللـ error بإيدك، وبتتعامل مع إن الـ component لو اترمّط هيترندر تاني، ولو الـ deps اتغيّرت لازم تلغي الـ request، وبيحصل race conditions من الـ responses القديمة. ده كله مسؤولية كبيرة. أما TanStack Query فبيقدم جاهز: caching للبيانات المحفوظة، stale-while-revalidate، refetchOnFocus لما المستخدم يرجع للنافذة، retries تلقائية، و background updates. يعني بدل ما أكتب كل ده بإيدي، بـ useQuery بينفذ كله بطريقة مضمونة ومختبرة. زبدة: useEffect للـ side effects ، TanStack Query لكل تفاعل مع الـ API.</p>
+<div class="work">في Taskly الـ 22 endpoint كلها كانت React Query — وده اللي عمل الـ optimistic updates والـ infinite scroll يشتغلوا من غير كود معقّد.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q3. الـ Clean Code في React معناه إيه؟</div>
+<div class="think">بيسمعوا فلسفتك الشخصية. اللي بيميز متقدم: صغر الـ components، أسماء واضحة، DRY بالأدوات مش بالـ copy، ومفيش side effects في الـ render.</div>
+<div class="a">
+<p>الـ clean code عندي مبني على: أولاً الـ components الصغيرة المسؤولية الواحدة — لو component عدّى الـ 150 سطر بتشك فيه. ثانياً التسمية الواضحة: الدالة اللي بتجيب بيانات اسم useGetOrders مش getStuff، والـ handlers بتسمت handle، و الـ booleans بتبدأ بـ is/has. ثالثاً الـ DRY الصح: بنعيد استخدام الأدوات مش الكود — لو شفت نفس الـ API logic 3 مرات، أخليه hook أو util في مكان واحد. رابعاً مفيش side effects في الـ render — الـ render ناتج محسوب بحت. خامساً TypeScript كامل من غير any. وسادساً الـ refactor التدريجي: لو الكود شغال ومفيش اختبارات، ممسكش أشيله دفعة واحدة — أحسّنه جزء جزء بالتزامن مع الاختبارات.</p>
+<div class="work">في StoreHub عملت قالب 9 ملفات للـ CRUD اشتغل على 5 موارد (billboards, categories, sizes, colors, products) — فأي تعديل بيحصل في مكان واحد بدل تكرار الكود 5 مرات.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q4. إيه الـ Custom Hook؟ وإمتى تعمله؟</div>
+<div class="think">عايزين يسمعوا عن إعادة الاستخدام الصحيحة. الحيلة اللي محفوظة عندي: "بستخلص لما أشوف التكرار 3 مرات أو منطق معقّد بيتعقّد المكوّن."</div>
+<div class="a">
+<p>الـ custom hook هو دالة اسمها بيبدأ بـ use وبتلف منطق قابل لإعادة الاستخدام، وبتقدر تاخد hooks تانية زي useState و useEffect و useQuery. بنعمله لما أشوف نفس المنطق متكرر في أكتر من component — زي الـ fetching مع الـ loading والـ error، أو الـ pagination، أو متابعة ظهور عنصر في الشاشة. أمثلة من اللي بنيته: useItems بتلف CRUD كامل لـ resources، وهوك الـ pagination/infinite scroll اللي بيدير نفس السلوك في كل القايمة. الفائدة إن الـ complexity بتتقفل في مكان واحد: لو الـ logic اتغيّر بتغيّره في مكان واحد مش في عشر صفحات. بس بتحفظ: مفيش hook لكل حاجة — لو المنطق بسيط سيبه inline، الاستخلاص بييجي مع التكرار الحقيقي.</p>
+<div class="work">في Get2Cars عملت 5 hooks عامة (get/post/put/delete/external-get) — ونفس الهوك اشتغل في كل الـ 6 وحدات، و الصفحات أصلاً بتتكلم مع axios أبداً، كله من خلال الـ layer ده.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q5. ليه الـ Code Splitting مهم لـ UX؟</div>
+<div class="think">بيحط الـ performance جوه صندوق الـ UX. الجواب: أول load أسرع = المستخدم بيشوف الواجهة بدل ما يستنى White Screen.</div>
+<div class="a">
+<p>الـ code splitting معناها إن الـ bundle الكبير بيتقسّم لـ chunks أصغر، والـ bundle الأساسي بيبقى أصغر والـ باقي بيتحمّل عند الحاجة — مع كل route أو lazy component. التأثير المباشر على الـ UX إن الـ First Contentful Paint و الـ Largest Contentful Paint بينزلوا — يعني المستخدم يشوف واجهة سريع بدل ما يحس بالحمل. كمان بيمنع التنزيل غير الضروري: حد مش هيستخدم صفحة الـ admin مفيش سبب يخليه ينزّلها. وده الفرق بين تجربة تفرح بيها وتجربة تاخد فيها complaints. وبيتربط بـ bundle analysis: بحاول أشوف مين أكبر الـ chunks — غالباً مكتبة ضخمة — فبنقلها للـ lazy أو الـ vendor splitting.</p>
+<div class="work">في Get2Cars الـ PDF export مكتبته ثقيلة، عملتها lazy import — فالصفحة الرئيسية بقت خفيفة، والـ lib بتتحمّل بس لما المستخدم يطلب طباعة.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q6. إيه الـ Accessibility / الـ UX اللي بتخليك متميّز؟</div>
+<div class="think">بيظهر اهتمامك بالتفاصيل المذكورة في الـ JD — عايزين أمثلة مش نظريات. ركّز: semantic HTML، focus، skeleton، validation.</div>
+<div class="a">
+<p>الـ accessibility عندي مش upgrade — ده base requirement. بنبدأ بالـ semantic HTML: button للأزرار، و ul/li للقايمة، والعناوين بالترتيب — عشان الـ screen readers تفهم الصفحة. وبعدين الـ keyboard nav: كل الـ interactive elements عندهم focus states ظاهرة والـ tab order منطقي. الـ icons لازم أهدي عليها aria-label. وفي الـ UX: الـ empty states بتبقى مفيدة — رسالة إرشادية مع Call to Action مش فراغ أبيض. والـ loading بيبقى skeletons مش spinner طول اليوم — لأن المـkeleton بيوريك شكل اللي هييجي فبتحس إن الـ app بتشتغل. والفورم validation برسايل واضحة مش بس حدود حمرا. وأخيراً الـ performance نفسه جزء من الـ UX — الـ app السريعة بتسلم عنك.</p>
+<div class="work">في Taskly الـ Accessibility score كان 98 في الـ Lighthouse — لأن كل الـ interactive elements ليها labels، وعملت skeletons للقايمة والـ Kanban ثابتين مع كل fetch.</div>
+</div>
+</div>
+</section>
+
+<!-- ================================================================ -->
+<section class="topic" id="sec-6">
+<h2>6. Tailwind CSS <span class="ltr-note">— متوقعة لأنها مذكورة في الـ JD</span></h2>
+
+<div class="qa">
+<div class="q">Q1. ليه Tailwind مش classes عادية أو CSS Modules؟</div>
+<div class="think">موقف خطيرة — عايزين trade-offs مش حب أعمى. الجواب: السرعة + الاتساق + الحجم الصغير، مع اعتراف إن ليه عيوب.</div>
+<div class="a">
+<p>قيمة الـ Tailwind في حاجات: الأولى السرعة — بنكتب الـ utilities في نفس الـ JSX من غير ما نلف في ملفات CSS ونحاول نفتكر أسماء كلاس. التاني الاتساق — الـ spacing والـ colors والـ fonts جاية من الـ config، فهم قيم محدّدة مش أرقام عشوائية، وكده الـ design system مقيد ومتناسق. الثالث الحجم — الـ Tailwind بيشيل أي CSS مش مستخدم من الناتج النهائي (tree-shaking)، فباندل أصغر من الـ CSS ملفات كاملة. والرابع الـ responsive سهل: md:flex في نفس السطر من غير media queries منفصلة. بس أنا واعي إن الـ JSX بينافس فضل طويل من الـ classes — عشان كده بنعمل components متخصصة (Button, Card, Input) بدل ما نكرر السطر الطويل في كل مكان.</p>
+<div class="work">في StoreHub استخدمت Tailwind مع shadcn/ui — فالـ theme والـ variant كلهم في الـ config بقي، و الـ dark mode جه بـ class statement من غير media query يدوي.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q2. إيه عيوب الـ Tailwind أو إمتى متستخدمهوش؟</div>
+<div class="think">بيختبروا الـ honesty — اعترف بالعيوب ووضح الحلول. ده بيحطك في مستوى مهندس ناضج.</div>
+<div class="a">
+<p>أول اعتراض معروف: الـ JSX بيطلع مليان سطور طويلة من الـ utilities — وده بينحل بمكونات صغيرة وبنماذج معيارية زي shadcn/ui، وبـ @apply لو احتجت تجميع. تاني اعتراض: لو فاهمش الـ naming system هتفتح الدوكس كتير في الأول، وده سقف انتقال معيّن. ثالث: مع الـ Design System المعقّد على مستوى الشركة، الـ Tailwind لوحده مش كفاية — محتاج tokens في الـ config وأدوات مكملة. ولو شغلنا مقيّد بـ CSS volume عادي أو إطار متداخل مع stylesheet قوية، يمكن أختار غيرها — بس في 90% من مشاريع الويب الحديثة المكسب أوفر. الخلاصة: الـ Tailwind أداة قوية توجهك للاتساق والسرعة، وولائه في الإدارة والفريق مش انحياز أعمى.</p>
+<div class="work">في RestIQ عملت dark mode بسهولة جداً بـ dark: و class strategy، لأن الألوان محفوظة كـ tokens في الـ config — فتغيير الـ theme مسمعش الكود ولا عدّل class في كل صفحة.</div>
+</div>
+</div>
+</section>
+
+<!-- ================================================================ -->
+<section class="topic" id="sec-7">
+<h2>7. Git &amp; GitHub <span class="ltr-note">— أسئلة مباشرة محتملة</span></h2>
+
+<div class="qa">
+<div class="q">Q1. الـ merge vs الـ rebase؟</div>
+<div class="think">الكلاسيك. الجواب المثالي يوازن بين الحفاظ على التاريخ وإعادة كتابته، ويعطي قاعدة عملية للاستخدام.</div>
+<div class="a">
+<p>الـ merge بيدمج فرعين مع بعض وبيعمل commit جديد اسمه merge commit، وبيحافظ على كل الـ history بتفرعاته زي ما اشتغلوا فعلاً. الـ rebase بيعيد وضع الـ commits بتاعتي فوق قمة البرانش التاني — فالتاريخ بيبقى خط مستقيم بدون وتفرعات، والـ log بيبقى نضيف سهل القراءة. بس التمن: الـ rebase بيعيد كتابة الـ commit hashes — يعني بيغيّر التاريخ — فلو فيه حد شغال على البرانش ده، هيحصل تعارض في الضجة. القاعدة العملية اللي بحفظها: rebase محلياً على البرانج بتاعي قبل الـ merge عشان التاريخ نضيف، و merge على الـ shared branches عشان التاريخ أمان ومحفوظ.</p>
+<div class="work">في شغلي اليومي: أفصل feature branch، واشتغل عليها، وأعمل rebase مع develop كل فترة عشان أظبط الحالية، وفي الآخر PR بيت merge من غير مساس بالعلاقات.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q2. إيه الـ cherry-pick؟</div>
+<div class="think">سؤال قصير — قوله في سطرين: بنقل commit معين من برانش لبرانش من غير ما أستمر فرع كامل.</div>
+<div class="a">
+<p>الـ cherry-pick بياخد commit معين من برانش وينقله لبرانش تاني، من غير ما يستمر الفرع كله ولا ماعته. استخدامات مشهورة: نقل hotfix من برانش الـ release للـ main، أو نقل fix صغير من فرع تجريبي لفرع مستقر. أهم حاجة أجيبها: لازم أتأكد إن الـ commit ده محلول عن أي commits تانية عايزها — عشان ميجيش معاه فجأة حاجات متوقعة.</p>
+<div class="work">في مشروع من مشاريعي كانت في hotfix صيانة لازم تنزل بسرعة للـ production — فاستخدمت cherry-pick للـ commit الواحد بدل ما أستمر فرع حالي كله مفيش حاجة منو متوصلة.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q3. حصلت مشكلة في الـ migration — أشتغل إيه؟</div>
+<div class="think">بيسألوا عن اطمئنانه إنك عارف العلاجات ولا بتخبط. تدرّج: شوف، راجع، تراجع/إصلاح.</div>
+<div class="a">
+<p>أول خطوة git status عشان أشوف الوضع، وبعدها git diff عشان أفهم بالزبط إيه اللي اتغيّر. لو الـ error في ملف مش قاصد أعمل عليه: git checkout -- &lt;file&gt; بيعيد الملف للحالة الأخيرة. لو في commits غلط: الـ revert بعمل commit جديد بيقلب التغيير — وده الآمن في الـ branches المشتركة لأن التاريخ محفوظ. لو احتجت أصلح آخر commit: amend. ولو حاجة محلية تماماً: git reset مش كده أقدر أرجع للـ history اللي عايزه. القاعدة المحفوظة: revert بيقلب التغيير بتاريخ محفوظ، و reset بيبرر التاريخ وبيمسح — ممنوع في الـ shared.</p>
+<div class="work">في مشروع StoreHub ضغطت commit فيه ملف سري بالغلط، حلّيت الموضوع بـ git reset محلياً قبل الـ push من أي حد يشوفه — وتعلمت السبب أقفل الملفات الحساسة بـ .gitignore.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q4. الـ Git Flow المعتاد في الشركات؟</div>
+<div class="think">بيتأكدوا إنك فهمك workflow الفرق. قولها بنظام: main + develop + feature + hotfix، و PRs مع review.</div>
+<div class="a">
+<p>النمط المعتاد: عندنا main (الجاهز للـ production)، و develop (بيتجمع فيه الشغل)، وفروع feature/xxx لكل ميزة، وفروع hotfix/xxx للإصلاحات العاجلة. أي ميزة بتتعمل في feature branch، وبتخلّص بـ Pull Request فيه review من زملاء، وبعد الموافقة بتتدمج. والـ commits مقسّمة بـ conventional commits: feat: للمزايا، fix: للإصلاحات، chore: للمهام الإدارية — فـ git log بيبان تاريخ مقروء وسهل الـ revert بالـ automated tooling.</p>
+<div class="work">في Taskly كنا شغالين طول الوقت بـ feature branches + PRs، و review بيطلب على كل PR — والـ squash and merge عشان التاريخ يفضل نضيف.</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q5. إزاي تتعامل مع الـ PR بشكل صحيح؟</div>
+<div class="think">سؤال عملي قصير. قوله كسلسلة خطوات وأختم بلمسة الـ quality.</div>
+<div class="a">
+<p>الخطوات: git checkout -b feature/xxx عشان أفصل البرانش، واشتغل وأعمل commits واضحة، وأعمل git push -u origin feature/xxx عشان أرفع البرانش، وأفتح Pull Request بوصف واضح بيقول إيه الميزة، وأراجع الـ diff بنفسي الأول قبل ما أستني حد — لأن كتير من الـ mistakes بتتعلّم في المراجعة الذاتية. واطلب review من زميل، وأعدل على ملاحظاته، وبعد ما تعدي الـ checks نمبرج بـ "squash and merge" عشان التاريخ نضيف. لمسة متقدمة بضيفها: اربط الـ PR بالـ issue وابعته screenshots أو demo — عشان الـ reviewer يفهم السياق بشكل أسرع.</p>
+<div class="work">عملت كده في كل مشاريعي اللي على GitHub (Taskly, StoreHub, RestIQ, Get2Cars) — ودي الحاجات اللي بعمل عرضها في الـ CV.</div>
+</div>
+</div>
+</section>
+
+<!-- ================================================================ -->
+<section class="topic" id="sec-8">
+<h2>8. أسئلة HR تخص Mega Dev <span class="ltr-note">— مكتوبة بالمصري عشان الـ JD</span></h2>
+
+<div class="qa">
+<div class="q">Q1. عرّفنا بنفسك (دقيقة واحدة)</div>
+<div class="think">البنية: إيه انت في السطر الأول · إنجازاتك بالأرقام · مين عايز تبقى. متقولش حياتك الشخصية.</div>
+<div class="a">
+<div class="quote">
+"أنا مطور Frontend عندي سنتين خبرة في React و TypeScript. اشتغلت في Kits Technology على منصة عربيات MarketPlace، اشتغلت معاهم على ربط 38 API endpoint، وعملت نظام RBAC دخول بصلاحيات، وحسّنت الأداء من 60 لـ 90+ في Lighthouse عن طريق الـ code splitting والـ caching. وبجنب الشغل عملت مشاريع Full-Stack كاملة — منصة تجارة إلكترونية بـ Stripe، وتطبيق إدارة مهام بـ optimistic updates. بحب الاهتمام بالتفاصيل وتحويل الأفكار لكود نظيف وسريع، وبدور على مكان أشتغل فيه جوه تيم وبتعلّم."
+</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q2. ليه عايز تشتغل معانا؟</div>
+<div class="think">القاعدة: اربط بين مهاراتك واحتياجاتهم — ومعهدش كلام عام "الشغل حلو". جهز تفصيلة حقيقية من الـ SEO عن Mega Dev.</div>
+<div class="a">
+<div class="quote">
+"شفت إن Mega Dev في طنطا وبتحب توصل الأفكار لكود، وشغّالين على تطبيقات Web بمنتجات Frontend قوية. اللي عجبني إن الـ Stack بتاعكم React/TypeScript/Tailwind هو نفسه اللي شغال بيه — فمش هحتاج فترة تكيّف وأقدر أضيف من أول يوم. وكمان بحب الشغل اللي فيه تفاصيل وتحويل فكرة لنتيجة حقيقية، ودي اللي شفتها في الـ JD. وطبيعي إن الشغل وسط تيم بيخلي مجالي أتعلم أسرع."
+</div>
+<p class="ltr-note">✍️ قبل المقابلة: دوّر على Mega Dev في Google/LinkedIn Facebook وحط تفصيلة حقيقية واحدة: "شفت إنكم عملتوا X" — الفرق بين إجابة عامة وإجابة بحثت عنها.</p>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q3. نقطة قوة ونقطة ضعف؟</div>
+<div class="think">القوة بدليل مش صفة عامة. والضعف بصدق ومعه خطة تحسين — متقلش "أنا كامل".</div>
+<div class="a">
+<p><strong>القوة:</strong> الـ Ownership — بحب أاخد الميزة من التصميم للـ deployment. مثال: في Get2Cars عملت طبقة API مركزية بـ interceptors و 5 hooks عامة، وبقت المعيار لكله في الـ 38 endpoint. فأنا ماشي مع الميزة رداء عملها لحد آخرها.</p>
+<p><strong>الضعف:</strong> "بقالي فترة بميل أعمل optimize قبل ما أبعت أول نسخة. اتعلمت أشتغل بالنُسخة الأبسط الأول، وأعمل refactor بعد ما الميزة تشتغل — دلوقتي بحدد وقت للتحسين بعد ما الشغل يثبت شغال."</p>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q4. إيه الراتب المتوقع؟</div>
+<div class="think">متقولش رقم واحد قاطع وأنت مذاكرتش السوق. اعكس السؤال: "إيه الـ budget للدور؟" وحاوِر من رقم عادل.</div>
+<div class="a">
+<div class="quote">
+"حسب الشغل والمستوى، أنا واثق من إمكانياتي في React و TypeScript والمشاريع اللي برهان عليها. بس عايز رقم عادل لسوق طنطا — فيه Budget محدد للدور؟ لو تعرفوني بالـ range بتاعكم، أقدر أقولكم إذا كان مناسب أو لأ."
+</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q5. إيه أكبر إنجاز ليك؟ (استخدم STAR)</div>
+<div class="think">Situation → Task → Action → Result — بنية ممتدة، والنتيجة بقياس واضح مش كلام.</div>
+<div class="a">
+<div class="quote">
+"في Get2Cars، الداشبورد كان بطيء والـ Lighthouse حوالي 60. التحويل كان لازم أداء الـ الجداول الكبيرة ييجي مقبول والمستخدين يثبتوا في الواجهة. عملت تحليل للـ bundle لقيت المكتبات الثقيلة بتصعق الأول load، فقسمت الكود بـ React.lazy على مستوى الـ routes، وسويت caching بالـ TanStack Query للـ requests المتكررة. النتيجة: الـ Lighthouse وصل 90+، والعميل كان مبسوط، والطريقة بقت standard لكل الميزات الجديدة في المشروع."
+</div>
+</div>
+</div>
+
+<div class="qa">
+<div class="q">Q6. أسئلة تسألها انت في الآخر (اسأل 2 على الأقل)</div>
+<div class="think">ده إلزامي — لو متسألتش إنت مش مهتم. اسأل أسئلة تإعلام الـ workflow والـ challenges.</div>
+<div class="a">
+<ul>
+  <li>"الـ workflow عندكم بيمشي إزاي — Scrum ولا Kanban؟ ولما نسلم ميزة؟"</li>
+  <li>"إيه أكبر تحدي بيعدّي على الـ Frontend team دلوقتي؟"</li>
+  <li>"بتعملوا Code review قبل ما الكود يطلع؟ والـ deployment إزاي؟"</li>
+  <li>"إيه المهارات اللي مهمة عندكم في الـ 6 شهور الجايين عشان أركّز عليها؟"</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- ================================================================ -->
+<section class="topic" id="sec-9">
+<h2>9. مخطط اليوم</h2>
+<table>
+  <tr><th>المرحلة</th><th>المحتوى</th><th>المدّة</th></tr>
+  <tr><td>1</td><td>راجع القسم 1 (React) بصوت عالي</td><td>90 دقيقة</td></tr>
+  <tr><td>2</td><td>القسم 2 (JS) سريعاً ثم 3 (TypeScript)</td><td>90 دقيقة</td></tr>
+  <tr><td>3</td><td>القسم 4 + 5 (State + Performance)</td><td>60 دقيقة</td></tr>
+  <tr><td>4</td><td>القسم 6 + 7 (Tailwind + Git)</td><td>60 دقيقة</td></tr>
+  <tr><td>5</td><td>القسم 8 (HR) + استخراج مشاريعك</td><td>45 دقيقة</td></tr>
+  <tr><td>6</td><td><strong>Mock interview معايا (30–45 دقيقة)</strong></td><td>آخر اليوم</td></tr>
+</table>
+</section>
+
+</div>
+</body>
+</html>
